@@ -1,0 +1,10 @@
+<h1>Cart</h1>
+<div *ngIf="products">
+    <div *ngFor="let product of products">
+        {{ product.name }}
+        <button (click)="buy()">Buy</button>
+        <button (click)="remove(product.id)">remove</button>
+        <hr>
+        <br>
+    </div>
+</div>

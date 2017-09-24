@@ -1,0 +1,38 @@
+<h1>Products</h1>
+<a routerLink="/cart">Cart {{ cartNumber }}</a>
+<products-filter-component
+    [products]="defaultRroducts"
+    (onFilter)="onFilter($event)"
+    (onClearFilter)="onClearFilter()"
+></products-filter-component>
+<table class="products-list">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Brand</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr
+            *ngFor="let product of currentProduct"
+        >
+            <td (click)="goToProduct(product)">
+                {{product.name}}
+            </td>
+            <td>
+                {{product.price}}
+            </td>
+            <td>
+                {{product.brand}}
+            </td>
+            <td>
+                {{product.inStock ? 'In stock' : 'Product is unavailable'}}
+            </td>
+            <td>
+                <button [disabled]="product.cartActive" (click)="addToCart(product)">Add to cart</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

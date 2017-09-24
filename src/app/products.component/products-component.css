@@ -1,0 +1,13 @@
+.products-list {
+    width: 800px;
+    border-collapse: collapse;
+
+}
+
+.products-list th {
+    text-align: left;
+}
+.products-list td {
+    width: 33.33%;
+    border: 1px solid #000;
+}

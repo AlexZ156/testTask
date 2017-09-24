@@ -1,0 +1,30 @@
+<div>
+    <h2>Filter by price</h2>
+    <label>
+        From
+        <input [(ngModel)]="priceFrom" type="text">
+    </label>
+    <label>
+        To
+        <input [(ngModel)]="priceTo" type="text">
+    </label>
+</div>
+<div>
+    <h2>Filter by brand</h2>
+    <div *ngFor="let brandName of objectKeys(brands || {})">
+        <label>
+            {{ brands[brandName].name }}
+            <input type="checkbox" [(ngModel)]="brands[brandName].checked">
+        </label>
+    </div>
+</div>
+<div>
+    <h2>Filter by product name</h2>
+    <input type="text" [(ngModel)]="productName">
+</div>
+<div>
+    <h2>Only in stock</h2>
+    <input type="checkbox" [(ngModel)]="inStock">
+</div>
+<button (click)="doFilter()">Do Filter</button>
+<button (click)="clearFilter()">Reset</button>
